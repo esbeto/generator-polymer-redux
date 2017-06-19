@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Heriberto Cantú",
+      "authorEmail": "es.beto@gmail.com",
+      "authorUrl": "https://github.com/esbeto"
+    }
+  }
+}
