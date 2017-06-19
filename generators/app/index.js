@@ -26,7 +26,7 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copyTpl(
       this.templatePath('reducer.html'),
-      this.destinationPath('reducer.html'),
+      this.destinationPath(this.props.model + '/reducer.html'),
       {
         model: this.props.model,
         model_UPPERCASE: this.props.model.toUpperCase(),
