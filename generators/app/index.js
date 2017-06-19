@@ -25,7 +25,7 @@ module.exports = class extends Generator {
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath('reducer.html'),
+      this.templatePath('reducer.tpl.php'),
       this.destinationPath(this.props.model + '/reducer.html'),
       {
         model: this.props.model,
@@ -35,6 +35,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies();
+    this.log('Done!');
   }
 };
