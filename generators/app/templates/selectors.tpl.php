@@ -16,7 +16,7 @@
         get <%= model %>() {
           let { <%= model %> } = state();
           return <%= model %>;
-        }
+        },
 
         get foo() {
           let { foo } = state();
