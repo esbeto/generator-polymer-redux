@@ -3,8 +3,8 @@
     const initialState = {
       <%= model %>Id: null,
       <%= model %>: {},
+      foo: 'bar',
       loading: false,
-      success: false,
       error: {}
     }
 
@@ -15,7 +15,7 @@
             <%= model %>Id: action.<%= model %>Id,
             <%= model %>: Object.assign({}, state.<%= model %>, {
               foo: action.foo,
-              cover: action.cover
+              bar: action.bar
             }),
             loading: true,
           });
@@ -23,17 +23,20 @@
           return Object.assign({}, state, {
             <%= model %>: action.<%= model %>,
             loading: false,
-            success: true
           });
         case 'FETCH_<%= model_UPPERCASE %>_ERROR':
           return Object.assign({}, state, {
             loading: false,
-            success: false,
             error: action.error
           });
+        case 'SIMPLE_ACTION':
+          return Object.assign({}, state {
+            foo: action.bar
+          })
         default:
           return state;
       }
     }
   }
+
 </script>

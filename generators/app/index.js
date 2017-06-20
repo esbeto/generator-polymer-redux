@@ -24,17 +24,24 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    let model = {
+      model: this.props.model,
+      model_UPPERCASE: this.props.model.toUpperCase(),
+      model_Capitalize: [...this.props.model].map((x, i) => i === 0 ? x.toUpperCase() : x ).join('')
+    };
+
     this.fs.copyTpl(
       this.templatePath('reducer.tpl.php'),
-      this.destinationPath(this.props.model + '/reducer.html'),
-      {
-        model: this.props.model,
-        model_UPPERCASE: this.props.model.toUpperCase(),
-      }
+      this.destinationPath(this.props.model + '/reducer.html'), model
+    )
+
+    this.fs.copyTpl(
+      this.templatePath('selectors.tpl.php'),
+      this.destinationPath(this.props.model + '/selectors.html'), model
     )
   }
 
   install() {
-    this.log('Done!');
+    this.log('Done.');
   }
 };
