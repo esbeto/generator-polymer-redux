@@ -11,11 +11,11 @@
         return function (dispatch, getState) {
           let { requested, success, error } = Utils.thunkActionFactory('FETCH_<%= model_UPPERCASE %>', dispatch);
 
-          requested();
+          requested({});
           return Api.get('/<%= model %>/')
             .then(response => response.data.data)
-            .then(data => success(data))
-            .catch(err => error(err));
+            .then(data => success({data}))
+            .catch(err => error({err}));
         }
       }
 
