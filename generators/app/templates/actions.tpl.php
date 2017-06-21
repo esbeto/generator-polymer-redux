@@ -7,6 +7,8 @@
     'use strict';
 
     const init = function (dispatch) {
+      const actions = {};
+
       actions.fetch<%= model_Capitalize %> = function () {
         return function (dispatch, getState) {
           let { requested, success, error } = Utils.thunkActionFactory('FETCH_<%= model_UPPERCASE %>', dispatch);
