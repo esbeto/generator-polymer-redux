@@ -8,8 +8,7 @@
       let exposableProps = [
         '<%= model %>',
         'foo',
-        'bar',
-        'baz'
+        'bar'
       ];
 
       let getters = {
@@ -26,11 +25,6 @@
         get bar() {
           let { bar } = state();
           return bar;
-        },
-
-        get baz() {
-          let { baz } = state();
-          return baz;
         }
       }
 

@@ -19,20 +19,22 @@
             }),
             loading: true,
           });
-        case 'FETCH_<%= model_UPPERCASE %>_SUCCESS':
+        case 'FETCH_<%= model_UPPERCASE %>:SUCCESS':
           return Object.assign({}, state, {
             <%= model %>: action.<%= model %>,
             loading: false,
           });
-        case 'FETCH_<%= model_UPPERCASE %>_ERROR':
+        case 'FETCH_<%= model_UPPERCASE %>:ERROR':
           return Object.assign({}, state, {
             loading: false,
             error: action.error
           });
         case 'SIMPLE_ACTION':
-          return Object.assign({}, state {
+          return Object.assign({}, state, {
             foo: action.bar
-          })
+          });
+        case 'RESET_STATE':
+          return Object.assign({}, initialState);
         default:
           return state;
       }
